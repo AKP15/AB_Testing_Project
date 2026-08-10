@@ -1,0 +1,56 @@
+
+
+
+# A/B testing process
+├── Hypothesis of A/B Test
+├── A/B Test Design | Power Analysis
+├── Results Analysis | Practical Significance
+├── Results Analysis | Statistical Significance
+└── Run the A/B test
+
+# Power Analysis
+├── Step 1: Determine **Power** of the test
+│   ├── Definition: probability of correctly rejecting the null hypothesis
+│   ├── Equivalent: probability of not making a type II error (1-β)
+│   ├── β: Type II error
+│   └── Common level: 80%
+├── Step 2: Determine **Significance Level** of the test
+│   ├── Definition: probability of rejecting the null while the null is true
+│   ├── Equivalent: detecting statistical significance while it's not
+│   ├── Probability of making a type I error (α)
+│   └── Common level: 5%
+└── Step 3: Determine **Minimum Detectable Effect** (MDE) of the test
+    ├── Definition: What is the substantive significance to the statistical significance for business?
+    ├── Proxy: relates to the smallest effect that would matter in practice
+    └── Common level: No common level → depends on the business ask
+
+# Calculating Min Sample Size
+├── Step 1: Identify primary metric type
+│   ├── Primary metric of A/B testing is often in the form of a binary variable
+│   └── Primary metric of the test can be in the form of proportions or averages
+├── Step 2: Define sampling distributions (via Central Limit Theorem)
+│   ├── X̄_con ~ N(μ_con, σ_con²)
+│   ├── X̄_exp ~ N(μ_exp, σ_exp²)
+│   └── X̄_con − X̄_exp ~ N(μ_con − μ_exp, σ_con²/N_con + σ_exp²/N_exp)
+└── Step 3: Apply the minimum sample size formula
+    ├── N = [ (σ_con² + σ_exp²) · (z_{1−α/2} + z_{1−β})² ] / δ²
+    ├── where δ = Minimum Detectable Effect (from Step 3 of Power Analysis)
+    ├── z_{1−α/2} = critical value for the chosen Significance Level (α)
+    └── z_{1−β} = critical value for the chosen Power (1−β)
+
+# A/B Test Duration
+├── Step 1: Calculate the required duration
+│   ├── Formula: Duration = N / (# visitors per day)
+│   └── Where N = minimum sample size (calculated from the previous formula)
+└── Step 2: Balance the risks of choosing the wrong duration
+    ├── Too small test duration → Novelty Effects
+    └── Too large test duration → Maturation Effects
+	        
+# A/B Test Results Analysis
+├── Purpose: Test for a statistically significant difference between control and experimental groups, and also test whether results are practically significant
+├── Step 1: Choosing statistical test
+├── Step 2: Calculating test statistics (T)
+├── Step 3: Calculating the p-value of the test statistics
+├── Step 4: Test for statistical significance
+├── Step 5: Calculate the Confidence Interval
+└── Step 6: Test for Practical significance

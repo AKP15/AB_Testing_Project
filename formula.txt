@@ -1,0 +1,32 @@
+
+A=control group
+B=experiment group
+
+A/B Testing — Two-Proportion Z-Test
+├── Define Hypotheses
+│   ├── H₀: pA = pB
+│   └── H₁: pA ≠ pB
+│
+├── Calculate Conversion Rates
+│   ├── pA = xA / NA
+│   └── pB = xB / NB
+│
+├── Calculate Pooled Proportion
+│   └── p̂ = (xA + xB) / (NA + NB)
+│
+├── Calculate Standard Error
+│   └── SE = √[p̂(1 − p̂)(1/NA + 1/NB)]
+│
+├── Calculate Z-Score
+│   └── z = (pB − pA) / SE
+│
+├── Calculate P-Value
+│   └── p-value = 2 × P(Z > |z|)
+│
+├── Compare P-Value
+│   ├── p-value < α → Reject H₀
+│   └── p-value ≥ α → Fail to Reject H₀
+│
+└── Conclusion
+    ├── Reject H₀ → Significant difference
+    └── Fail to Reject H₀ → No significant difference
