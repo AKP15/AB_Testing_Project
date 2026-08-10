@@ -17,7 +17,7 @@ if __name__ == "__main__":
     #infon=data_inspect.check_info()
     
     alpha = 0.05
-    delta = 0.01
+    delta = 0.1
     #Total number of user per groups  
     N_con = len(data[data["group"] == "con"])
     N_exp = len(data[data["group"] == "exp"])
